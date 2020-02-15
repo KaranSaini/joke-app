@@ -1,0 +1,37 @@
+h3, h2 {
+    color: #dd6b4d;
+}
+
+.jokeContainer {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto auto;
+
+    border-style: solid;
+    border-width: 10px;
+
+    h2 {
+        order: 1;
+        grid-row: 0 / 1;
+        display: inline;
+    }
+
+    div {
+        order: 2;
+        grid-row: 1 / 2;
+        button {
+            display: inline;
+            border-radius: 14px;
+        }
+    }
+
+
+    h3 {
+        order: 3;
+        grid-row: 2 / 3;
+        display: inline;
+    }
+
+}
