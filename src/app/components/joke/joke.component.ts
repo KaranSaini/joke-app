@@ -20,20 +20,20 @@ export class JokeComponent implements OnInit {
       targets: 'div h2',
       opacity: [0, 1],
       duration: 2000,
-      easing: 'linear'
+      easing: 'easeInOutQuad'
     })
     .add({
       targets: 'div button',
       duration: 3000,
       opacity: [0, 1],
-      easing: 'linear'
+      easing: 'easeOutQuart'
     })
   }
 
   onFirstClick() {
     this.buttonClicked = true;
     let a = this.joke.retrieveDefault().subscribe((value) => {
-      this.progJoke.next(value);
+      this.progJoke.next(value['joke']);
     })
   }
 
