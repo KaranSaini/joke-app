@@ -8,7 +8,7 @@ import anime from '../../../../node_modules/animejs/lib/anime.min.js';
   // templateUrl: './joke.component.html',
   template: `
     <div class="jokeContainer">
-      <div class="buttonContainer" ><button (click)='onFirstClick()' 
+      <div class="buttonContainer" ><button (click)='onFirstClick()'
         (mouseover) = 'onMouseOver($event)'
         (mouseleave) = 'onMouseLeave($event)'
         >GET A JOKE!</button></div>
@@ -82,9 +82,6 @@ export class JokeComponent implements OnInit {
     jokePromise.then((message) => {
       console.log(message);
       const a = this.joke.retrieveDefault().subscribe((value) => {
-        while(value[key] == undefined) {
-          
-        }
         this.progJoke.next(value[key]);
         console.log(value[key]);
         const an = anime.timeline({
@@ -98,6 +95,8 @@ export class JokeComponent implements OnInit {
           duration: 1000,
           translateY: [1500, 0],
         })
+      }, (error) => {
+        console.log(error)
       })
     })
   }

@@ -7,22 +7,13 @@ import { Observable, EMPTY } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class JokeApiService {
-  defaultUrl = `https://sv443.net/jokeapi/v2/joke/Programming?
-    type=single&blacklistFlags=nsfw,religious,political,racist,sexist&format=json`;
+  defaultUrl = `https://sv443.net/jokeapi/v2/joke/Programming?type=single&blacklistFlags=nsfw,religious,political,racist,sexist&format=json`;
 
-  retrieveDefault(): Observable<string> {
-    return this.httpClient.get<string>(this.defaultUrl).pipe(
-      timeout(2500),
-      retry(3),
-      catchError(() => {
-        return EMPTY;
-      }),
-      shareReplay()
-    );
+  retrieveDefault(){
+    return this.httpClient.get(this.defaultUrl);
   }
 
-  constructor(private httpClient: HttpClient) {
-     
-  }
+  constructor(private httpClient: HttpClient) {}
 }
