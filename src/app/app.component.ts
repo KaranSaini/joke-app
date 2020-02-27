@@ -5,12 +5,12 @@ import anime from '../../node_modules/animejs/lib/anime.min.js';
   selector: 'app-root',
   template: `
     <div class="app">
-    <app-header></app-header>
-    <app-joke></app-joke>
-    <app-footer></app-footer>
-</div>
+      <app-header></app-header>
+      <app-joke></app-joke>
+      <app-footer></app-footer>
+    </div>
   `,
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements AfterViewInit{
   ngAfterViewInit() {
